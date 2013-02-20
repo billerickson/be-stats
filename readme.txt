@@ -15,7 +15,7 @@ This plugin uses the WordPress.com stats (packaged in Jetpack) to find out your 
 
 It asks WordPress.com for the 100 most popular posts over the past 30 days. This includes both posts and pages, since their stats don’t let you filter based on post type. I filter this list down to just posts and then store its ranking as post meta ('be_stats'). 
 
-You can [write custom queries](https://gist.github.com/billerickson/4997202) to list popular posts, or use the [Display Posts Shortcode](http://wordpress.org/extend/plugins/display-posts-shortcode/) to do it for you. Examples using the shortcode plugin:
+You can [write custom queries](https://gist.github.com/billerickson/4997202) to list popular posts, or use the [Display Posts Shortcode plugin](http://wordpress.org/extend/plugins/display-posts-shortcode/) to do it for you. Examples using the shortcode plugin:
 
 [display-posts orderby="popular"] - Lists the 10 most popular posts
 [display-posts orderby="popular" posts_per_page="4"] - Lists the 4 most popular posts
