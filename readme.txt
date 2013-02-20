@@ -25,3 +25,13 @@ You can [write custom queries](https://gist.github.com/billerickson/4997202) to 
 
 = 1.0 =
 * Initial Version
+
+== For Developers ==
+
+There are a few filters available to you for customization. Refer to the plugin's code for more information.
+
+be_stats_args - arguments passed to WordPress.com Stats API. 
+Default: array( 'days' => 30, 'limit' => 100 )
+
+be_stats_update - Conditional for determining if stats data should be saved
+Default: 'post' == get_post_type()
