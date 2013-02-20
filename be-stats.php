@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: BE Stats
- * Plugin URI: http://www.billerickson.net/shortcode-to-display-posts/
+ * Plugin URI: https://github.com/billerickson/be-stats
  * Description: Keeps track of your most popular posts for display in site
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Bill Erickson
  * Author URI: http://www.billerickson.net
  *
