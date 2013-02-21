@@ -44,9 +44,12 @@ class BE_Stats {
 	 * Filters:
 	 * `be_stats_args` - arguments passed to WordPress.com Stats API. 
 	 * Default: array( 'days' => 30, 'limit' => 100 )
+	 * Example: http://www.billerickson.net/code/customize-be-stats-arguments/
 	 *
 	 * `be_stats_update` - Conditional for determining if stats data should be saved
 	 * Default: 'post' == get_post_type()
+	 * Example: http://www.billerickson.net/code/be-stats-change-ranking-conditions/
+	 *
 	 */
 	function get_popular_posts() {
 		
