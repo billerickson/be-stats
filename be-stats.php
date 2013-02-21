@@ -3,7 +3,7 @@
  * Plugin Name: BE Stats
  * Plugin URI: https://github.com/billerickson/be-stats
  * Description: Keeps track of your most popular posts for display in site
- * Version: 1.0.1
+ * Version: 1.0
  * Author: Bill Erickson
  * Author URI: http://www.billerickson.net
  *
@@ -21,9 +21,8 @@ class BE_Stats {
 	
 	function __construct() {
 		$this->instance =& $this;
-		add_action( 'init', array( $this, 'update_popular_posts' ) );
+		add_action( 'init', array( $this, 'get_popular_posts' ) );
 		add_filter( 'display_posts_shortcode_args', array( $this, 'display_posts' ), 10, 2 );
-		add_filter( 'http_request_args', array( $this, 'dont_update' ), 5, 2 );
 	}
 	
 	/**
@@ -76,8 +75,9 @@ class BE_Stats {
 			
 			// Delete old popular post list
 			$args = array(
+				'post_type'      => 'any',
 				'posts_per_page' => -1,
-				'meta_key' => 'be_stats',
+				'meta_key'       => 'be_stats',
 			);
 			$loop = new WP_Query( $args );
 			if( $loop->have_posts() ): while( $loop->have_posts() ): $loop->the_post(); global $post;
@@ -117,29 +117,5 @@ class BE_Stats {
 		return $args;
 	}
 
-
-	/**
-	 * Don't Update Plugin
-	 * 
-	 * This prevents you being prompted to update if there's a public plugin
-	 * with the same name.
-	 *
-	 * @author Mark Jaquith
-	 * @link http://markjaquith.wordpress.com/2009/12/14/excluding-your-plugin-or-theme-from-update-checks/
-	 *
-	 * @param array $r, request arguments
-	 * @param string $url, request url
-	 * @return array request arguments
-	 */
-	function dont_update( $r, $url ) {
-		if ( 0 !== strpos( $url, 'http://api.wordpress.org/plugins/update-check' ) )
-			return $r; // Not a plugin update request. Bail immediately.
-		$plugins = unserialize( $r['body']['plugins'] );
-		unset( $plugins->plugins[ plugin_basename( __FILE__ ) ] );
-		unset( $plugins->active[ array_search( plugin_basename( __FILE__ ), $plugins->active ) ] );
-		$r['body']['plugins'] = serialize( $plugins );
-		return $r;
-	}
-	
 }
 new BE_Stats;
