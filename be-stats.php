@@ -111,7 +111,7 @@ class BE_Stats {
 	 * @return array $args
 	 */
 	function display_posts( $args, $original_atts ) {
-		if( 'popular' !== $original_atts['orderby'] ) 
+		if( isset( $original_atts['orderby'] ) && 'popular' !== $original_atts['orderby'] )
 			return $args;
 			
 		$args['orderby'] = 'meta_value_num';
