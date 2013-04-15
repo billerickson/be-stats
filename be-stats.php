@@ -3,7 +3,7 @@
  * Plugin Name: BE Stats
  * Plugin URI: https://github.com/billerickson/be-stats
  * Description: Keeps track of your most popular posts for display in site
- * Version: 1.0
+ * Version: 1.1
  * Author: Bill Erickson
  * Author URI: http://www.billerickson.net
  *
@@ -111,7 +111,7 @@ class BE_Stats {
 	 * @return array $args
 	 */
 	function display_posts( $args, $original_atts ) {
-		if( 'popular' !== $original_atts['orderby'] ) 
+		if( ! isset( $original_atts['orderby'] ) || 'popular' !== $original_atts['orderby'] ) 
 			return $args;
 			
 		$args['orderby'] = 'meta_value_num';
