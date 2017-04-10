@@ -3,7 +3,7 @@ Contributors: billerickson
 Tags: popular, popularity, stats, listing
 Requires at least: 3.0.1
 Tested up to: 4.7.3
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,9 @@ You can [write custom queries](https://gist.github.com/billerickson/4997202) to 
 [display-posts orderby="popular" posts_per_page="4" tag="basic"] - Lists the 4 most popular posts tagged "basic"
 
 == Changelog ==
+
+= 1.1.1 =
+* Bump up the "Tested to" version
 
 = 1.1 =
 * Fix PHP Notice, props jjeaton
